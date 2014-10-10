@@ -59,6 +59,19 @@ define('PTHREADS_ALLOW_HEADERS', 0x1000000);
  */
 define('PTHREADS_ALLOW_GLOBALS', 0x10000000);
 
+class Collectable extends Threaded{
+
+	/**
+	 * @return bool
+	 */
+	public function isGarbage(){}
+
+	/**
+	 * @return void
+	 */
+	public function setGarbage(){}
+}
+
 /**
  * Threaded class
  *
