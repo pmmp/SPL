@@ -110,6 +110,10 @@ class BaseClassLoader implements ClassLoader{
                 return false;
             }
 
+	        if(method_exists($name, "onClassLoaded") and (new ReflectionClass($name))->getMethod("onClassLoaded")->isStatic()){
+		        $name::onClassLoaded();
+	        }
+
             return true;
         }
 
