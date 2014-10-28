@@ -66,6 +66,8 @@ interface ClassLoader{
      * @param string $name
      *
      * @return bool
+     *
+     * @throws ClassNotFoundException
      */
     public function loadClass($name);
 

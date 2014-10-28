@@ -107,6 +107,9 @@ class BaseClassLoader implements ClassLoader{
         if($path !== null){
             include($path);
             if(!class_exists($name) and !interface_exists($name)){
+	            if($this->getParent() === null){
+		            throw new ClassNotFoundException("Class $name not found");
+	            }
                 return false;
             }
 
@@ -115,6 +118,8 @@ class BaseClassLoader implements ClassLoader{
 	        }
 
             return true;
+        }elseif($this->getParent() === null){
+	        throw new ClassNotFoundException("Class $name not found");
         }
 
         return false;
