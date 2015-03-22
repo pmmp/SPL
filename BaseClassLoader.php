@@ -49,13 +49,13 @@ class BaseClassLoader extends \Threaded implements ClassLoader{
         }
 
         if($prepend){
-			$this->lock();
-			$entries = $this->getAndRemoveLookupEntries();
-            $this->lookup[] = $path;
-            foreach($entries as $entry){
-				$this->lookup[] = $entry;
-			}
-            $this->unlock();
+			$this->synchronized(function($path){
+				$entries = $this->getAndRemoveLookupEntries();
+				$this->lookup[] = $path;
+				foreach($entries as $entry){
+					$this->lookup[] = $entry;
+				}
+			}, $path);
         }else{
             $this->lookup[] = $path;
         }
