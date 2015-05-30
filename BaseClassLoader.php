@@ -157,11 +157,18 @@ class BaseClassLoader extends \Threaded implements ClassLoader{
     public function findClass($name){
         $components = explode("\\", $name);
 
-        $fullName = implode(DIRECTORY_SEPARATOR, $components) . ".php";
+        $baseName = implode(DIRECTORY_SEPARATOR, $components);
+
 
         foreach($this->lookup as $path){
-            if(file_exists($path . DIRECTORY_SEPARATOR . $fullName)){
-                return $path . DIRECTORY_SEPARATOR . $fullName;
+            if(PHP_INT_SIZE === 8 and file_exists($path . DIRECTORY_SEPARATOR . $baseName . "__64bit.php")){
+                var_dump("LOAD 64-bit version $baseName");
+                return $path . DIRECTORY_SEPARATOR . $baseName . "__64bit.php";
+            }elseif(PHP_INT_SIZE === 4 and file_exists($path . DIRECTORY_SEPARATOR . $baseName . "__32bit.php")){
+                var_dump("LOAD 32-bit version $baseName");
+                return $path . DIRECTORY_SEPARATOR . $baseName . "__32bit.php";
+            }elseif(file_exists($path . DIRECTORY_SEPARATOR . $baseName . ".php")){
+                return $path . DIRECTORY_SEPARATOR . $baseName . ".php";
             }
         }
 
