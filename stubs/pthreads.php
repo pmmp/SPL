@@ -103,15 +103,6 @@ class Threaded implements Traversable, Countable, ArrayAccess{
     }
 
     /**
-     * Retrieves terminal error information from the referenced object
-     *
-     * @link http://www.php.net/manual/en/threaded.getterminationinfo.php
-     * @return array|bool array containing the termination conditions of the referenced object
-     */
-    public function getTerminationInfo(){
-    }
-
-    /**
      * Tell if the referenced object is executing
      *
      * @link http://www.php.net/manual/en/threaded.isrunning.php
@@ -263,14 +254,6 @@ class Threaded implements Traversable, Countable, ArrayAccess{
 class Thread extends Threaded{
 
     /**
-     * Detaches a thread
-     *
-     * @return bool A boolean indication of success
-     */
-    public function detach(){
-    }
-
-    /**
      * Will return the identity of the Thread that created the referenced Thread
      *
      * @link http://www.php.net/manual/en/thread.getcreatorid.php
@@ -348,19 +331,7 @@ class Thread extends Threaded{
      * @link http://www.php.net/manual/en/thread.start.php
      * @return bool A boolean indication of success
      */
-    public function start($options = PTHREADS_INHERIT_ALL){
-    }
-
-    /**
-     * Will execute the Callable in the global scope
-     *
-     * @param Callable $block The code to execute
-     * @param ...      $args    Variable length list of arguments to pass to the Callable upon execution
-     *
-     * @link  http://www.php.net/manual/en/thread.start.php
-     * @return bool A boolean indication of success
-     */
-    public static function globally(Callable $block, $args = null){
+    public function start(int $options = PTHREADS_INHERIT_ALL){
     }
 }
 
@@ -420,23 +391,32 @@ class Worker extends Thread{
     /**
      * Appends the referenced object to the stack of the referenced Worker
      *
-     * @param Threaded $work Threaded object to be executed by the referenced Worker
+     * @param Collectable $work Collectable object to be executed by the referenced Worker
      *
      * @link http://www.php.net/manual/en/worker.stack.php
      * @return int The new length of the stack
      */
-    public function stack(Threaded &$work){
+    public function stack(Collectable &$work){
     }
 
     /**
-     * Removes the referenced object ( or all objects if parameter is null ) from stack of the referenced Worker
-     *
-     * @param Threaded $work Threaded object previously stacked onto Worker
+     * Removes the first item from the stack
      *
      * @link http://www.php.net/manual/en/worker.unstack.php
      * @return int The new length of the stack
      */
-    public function unstack(Threaded &$work = null){
+    public function unstack(){
+    }
+
+    /**
+     * Collects finished objects
+     *
+     * @param callable $function
+     *
+     * @link http://www.php.net/manual/en/worker.collect.php
+     * @return void
+     */
+    public function collect(callable $function){
     }
 }
 
