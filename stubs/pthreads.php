@@ -315,14 +315,6 @@ class Thread extends Threaded{
     public function join(){
     }
 
-    /**
-     * Kills the referenced thread, dangerously !
-     *
-     * @link http://www.php.net/manual/en/thread.kill.php
-     */
-    public function kill(){
-    }
-
     public function __destruct(){
 
     }
