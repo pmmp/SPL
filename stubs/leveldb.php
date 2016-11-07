@@ -78,7 +78,7 @@ class LevelDB{
 	 * Executes all of the operations added in the write batch.
 	 *
 	 * @param LevelDBWriteBatch $batch
-	 * @param array	            $write_options
+	 * @param array             $write_options
 	 */
 	public function write(LevelDBWriteBatch $batch, array $write_options = []){}
 

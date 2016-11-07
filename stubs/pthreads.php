@@ -192,7 +192,7 @@ class Threaded implements Traversable, Collectable{
 	 * Executes the block while retaining the synchronization lock for the current context.
 	 *
 	 * @param \Closure $function The block of code to execute
-	 * @param mixed	$args    ... Variable length list of arguments to use as function arguments to the block
+	 * @param mixed    $args    ... Variable length list of arguments to use as function arguments to the block
 	 *
 	 * @link http://www.php.net/manual/en/threaded.synchronized.php
 	 * @return mixed The return value from the block
