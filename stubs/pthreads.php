@@ -369,7 +369,7 @@ class Worker extends Thread{
 	 * @link http://www.php.net/manual/en/worker.collect.php
 	 * @return void
 	 */
-	public function collect(callable $function){}
+	public function collect(callable $function = null){}
 }
 
 /**
