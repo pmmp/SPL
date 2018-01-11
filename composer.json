@@ -1,5 +1,5 @@
 {
-    "name": "pmmp/pocketmine-spl",
+    "name": "pocketmine/pocketmine-spl",
     "description": "Standard library files required by PocketMine-MP and related projects",
     "type": "library",
     "license": "LGPL-3.0",
