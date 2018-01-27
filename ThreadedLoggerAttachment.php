@@ -24,7 +24,7 @@ abstract class ThreadedLoggerAttachment extends \Volatile implements \LoggerAtta
 	 * @param mixed  $level
 	 * @param string $message
 	 */
-	public final function call($level, $message){
+	final public function call($level, $message){
 		$this->log($level, $message);
 		if($this->attachment instanceof \ThreadedLoggerAttachment){
 			$this->attachment->call($level, $message);
