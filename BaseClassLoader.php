@@ -108,8 +108,6 @@ class BaseClassLoader extends \Threaded implements ClassLoader{
 	 * Attaches the ClassLoader to the PHP runtime
 	 *
 	 * @param bool $prepend
-	 *
-	 * @return bool
 	 */
 	public function register($prepend = false){
 		spl_autoload_register([$this, "loadClass"], true, $prepend);
