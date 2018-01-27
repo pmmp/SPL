@@ -17,8 +17,8 @@
 
 abstract class AttachableThreadedLogger extends \ThreadedLogger{
 
-	/** @var \ThreadedLoggerAttachment */
-	protected $attachments = null;
+	/** @var \Volatile|\ThreadedLoggerAttachment[] */
+	protected $attachments;
 
 	public function __construct(){
 		$this->attachments = new \Volatile();
