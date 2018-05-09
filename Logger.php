@@ -25,7 +25,7 @@ interface Logger{
 	public function emergency($message);
 
 	/**
-	 * Action must me taken immediately
+	 * Action must be taken immediately
 	 *
 	 * @param string $message
 	 */
@@ -64,7 +64,7 @@ interface Logger{
 	public function notice($message);
 
 	/**
-	 * Inersting events.
+	 * Interesting events.
 	 *
 	 * @param string $message
 	 */
