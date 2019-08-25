@@ -18,14 +18,6 @@
 interface ClassLoader{
 
 	/**
-	 * Adds a path to the lookup list
-	 *
-	 * @param string $path
-	 * @param bool   $prepend
-	 */
-	public function addPath($path, $prepend = false);
-
-	/**
 	 * Attaches the ClassLoader to the PHP runtime
 	 *
 	 * @param bool $prepend

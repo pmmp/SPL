@@ -15,7 +15,7 @@
  * GNU General Public License for more details.
 */
 
-class BaseClassLoader extends \Threaded implements ClassLoader{
+class BaseClassLoader extends \Threaded implements DynamicClassLoader{
 
 	/** @var \ClassLoader */
 	private $parent;
