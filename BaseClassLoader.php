@@ -16,22 +16,11 @@
 */
 
 class BaseClassLoader extends \Threaded implements DynamicClassLoader{
-
-	/** @var \ClassLoader */
-	private $parent;
 	/** @var string[] */
 	private $lookup;
-	/** @var string[] */
-	private $classes;
 
-
-	/**
-	 * @param ClassLoader $parent
-	 */
-	public function __construct(ClassLoader $parent = null){
-		$this->parent = $parent;
+	public function __construct(){
 		$this->lookup = new \Threaded;
-		$this->classes = new \Threaded;
 	}
 
 	/**
@@ -70,41 +59,6 @@ class BaseClassLoader extends \Threaded implements DynamicClassLoader{
 	}
 
 	/**
-	 * Removes a path from the lookup list
-	 *
-	 * @param $path
-	 */
-	public function removePath($path){
-		foreach($this->lookup as $i => $p){
-			if($p === $path){
-				unset($this->lookup[$i]);
-			}
-		}
-	}
-
-	/**
-	 * Returns an array of the classes loaded
-	 *
-	 * @return string[]
-	 */
-	public function getClasses(){
-		$classes = [];
-		foreach($this->classes as $class){
-			$classes[] = $class;
-		}
-		return $classes;
-	}
-
-	/**
-	 * Returns the parent ClassLoader, if any
-	 *
-	 * @return ClassLoader
-	 */
-	public function getParent(){
-		return $this->parent;
-	}
-
-	/**
 	 * Attaches the ClassLoader to the PHP runtime
 	 *
 	 * @param bool $prepend
@@ -131,8 +85,6 @@ class BaseClassLoader extends \Threaded implements DynamicClassLoader{
 			if(method_exists($name, "onClassLoaded") and (new ReflectionClass($name))->getMethod("onClassLoaded")->isStatic()){
 				$name::onClassLoaded();
 			}
-			
-			$this->classes[] = $name;
 
 			return true;
 		}
