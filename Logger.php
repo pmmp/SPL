@@ -88,8 +88,8 @@ interface Logger{
 	/**
 	 * Logs a Throwable object
 	 *
-	 * @param Throwable $e
-	 * @param $trace
+	 * @param Throwable  $e
+	 * @param array|null $trace
 	 */
 	public function logException(\Throwable $e, $trace = null);
 }
