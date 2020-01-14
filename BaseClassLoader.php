@@ -72,7 +72,7 @@ class BaseClassLoader extends \Threaded implements ClassLoader{
 	/**
 	 * Removes a path from the lookup list
 	 *
-	 * @param $path
+	 * @param string $path
 	 */
 	public function removePath($path){
 		foreach($this->lookup as $i => $p){
