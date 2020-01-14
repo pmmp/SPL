@@ -26,6 +26,8 @@ abstract class AttachableThreadedLogger extends \ThreadedLogger{
 
 	/**
 	 * @param ThreadedLoggerAttachment $attachment
+	 *
+	 * @return void
 	 */
 	public function addAttachment(\ThreadedLoggerAttachment $attachment){
 		$this->attachments[] = $attachment;
@@ -33,6 +35,8 @@ abstract class AttachableThreadedLogger extends \ThreadedLogger{
 
 	/**
 	 * @param ThreadedLoggerAttachment $attachment
+	 *
+	 * @return void
 	 */
 	public function removeAttachment(\ThreadedLoggerAttachment $attachment){
 		foreach($this->attachments as $i => $a){
@@ -42,6 +46,9 @@ abstract class AttachableThreadedLogger extends \ThreadedLogger{
 		}
 	}
 
+	/**
+	 * @return void
+	 */
 	public function removeAttachments(){
 		foreach($this->attachments as $i => $a){
 			unset($this->attachments[$i]);

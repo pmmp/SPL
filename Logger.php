@@ -21,6 +21,8 @@ interface Logger{
 	 * System is unusable
 	 *
 	 * @param string $message
+	 *
+	 * @return void
 	 */
 	public function emergency($message);
 
@@ -28,6 +30,8 @@ interface Logger{
 	 * Action must be taken immediately
 	 *
 	 * @param string $message
+	 *
+	 * @return void
 	 */
 	public function alert($message);
 
@@ -35,6 +39,8 @@ interface Logger{
 	 * Critical conditions
 	 *
 	 * @param string $message
+	 *
+	 * @return void
 	 */
 	public function critical($message);
 
@@ -43,6 +49,8 @@ interface Logger{
 	 * be logged and monitored.
 	 *
 	 * @param string $message
+	 *
+	 * @return void
 	 */
 	public function error($message);
 
@@ -53,6 +61,8 @@ interface Logger{
 	 * that are not necessarily wrong.
 	 *
 	 * @param string $message
+	 *
+	 * @return void
 	 */
 	public function warning($message);
 
@@ -60,6 +70,8 @@ interface Logger{
 	 * Normal but significant events.
 	 *
 	 * @param string $message
+	 *
+	 * @return void
 	 */
 	public function notice($message);
 
@@ -67,6 +79,8 @@ interface Logger{
 	 * Interesting events.
 	 *
 	 * @param string $message
+	 *
+	 * @return void
 	 */
 	public function info($message);
 
@@ -74,6 +88,8 @@ interface Logger{
 	 * Detailed debug information.
 	 *
 	 * @param string $message
+	 *
+	 * @return void
 	 */
 	public function debug($message);
 
@@ -82,6 +98,8 @@ interface Logger{
 	 *
 	 * @param mixed  $level
 	 * @param string $message
+	 *
+	 * @return void
 	 */
 	public function log($level, $message);
 
@@ -90,6 +108,8 @@ interface Logger{
 	 *
 	 * @param Throwable  $e
 	 * @param array|null $trace
+	 *
+	 * @return void
 	 */
 	public function logException(\Throwable $e, $trace = null);
 }
