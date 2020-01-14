@@ -63,6 +63,10 @@ class BaseClassLoader extends \Threaded implements ClassLoader{
 		}
 	}
 	
+
+	/**
+	 * @return string[]
+	 */
 	protected function getAndRemoveLookupEntries(){
 		$entries = [];
 		while($this->lookup->count() > 0){
