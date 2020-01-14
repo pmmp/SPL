@@ -19,9 +19,9 @@ class BaseClassLoader extends \Threaded implements ClassLoader{
 
 	/** @var \ClassLoader */
 	private $parent;
-	/** @var string[] */
+	/** @var \Threaded|string[] */
 	private $lookup;
-	/** @var string[] */
+	/** @var \Threaded|string[] */
 	private $classes;
 
 
