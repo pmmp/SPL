@@ -17,13 +17,25 @@
 
 class SplFixedByteArray extends SplFixedArray{
 
+	/** @var bool */
 	private $convert;
 
+	/**
+	 * @param int  $size
+	 * @param bool $convert
+	 */
 	public function __construct($size, $convert = false){
 		parent::__construct($size);
 		$this->convert = (bool) $convert;
 	}
 
+	/**
+	 * @param int  $start
+	 * @param int  $size
+	 * @param bool $normalize
+	 *
+	 * @return string|string[]
+	 */
 	public function chunk($start, $size, $normalize = true){
 		$end = $start + $size;
 		if($normalize and $this->convert){
@@ -87,6 +99,9 @@ class SplFixedByteArray extends SplFixedArray{
 		return $ob;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function toString(){
 		$result = "";
 		if($this->convert){
