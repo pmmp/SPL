@@ -27,6 +27,8 @@ interface ClassLoader{
 	 *
 	 * @param string $path
 	 * @param bool   $prepend
+	 *
+	 * @return void
 	 */
 	public function addPath($path, $prepend = false);
 
@@ -34,6 +36,8 @@ interface ClassLoader{
 	 * Removes a path from the lookup list
 	 *
 	 * @param string $path
+	 *
+	 * @return void
 	 */
 	public function removePath($path);
 
