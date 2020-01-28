@@ -17,7 +17,7 @@
 
 class BaseClassLoader extends \Threaded implements ClassLoader{
 
-	/** @var \ClassLoader */
+	/** @var \ClassLoader|null */
 	private $parent;
 	/** @var \Threaded|string[] */
 	private $lookup;
@@ -26,7 +26,7 @@ class BaseClassLoader extends \Threaded implements ClassLoader{
 
 
 	/**
-	 * @param ClassLoader $parent
+	 * @param ClassLoader|null $parent
 	 */
 	public function __construct(ClassLoader $parent = null){
 		$this->parent = $parent;
@@ -106,7 +106,7 @@ class BaseClassLoader extends \Threaded implements ClassLoader{
 	/**
 	 * Returns the parent ClassLoader, if any
 	 *
-	 * @return ClassLoader
+	 * @return ClassLoader|null
 	 */
 	public function getParent(){
 		return $this->parent;
