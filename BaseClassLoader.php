@@ -120,7 +120,9 @@ class BaseClassLoader extends \Threaded implements ClassLoader{
 	 * @return bool
 	 */
 	public function register($prepend = false){
-		return spl_autoload_register([$this, "loadClass"], true, $prepend);
+		return spl_autoload_register(function(string $name) : void{
+			$this->loadClass($name);
+		}, true, $prepend);
 	}
 
 	/**
