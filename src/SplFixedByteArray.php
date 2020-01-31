@@ -64,11 +64,11 @@ class SplFixedByteArray extends SplFixedArray{
 
 		if($convert){
 			for($i = 0; $i < $len; ++$i){
-				$ob[$i] = ord($str{$i});
+				$ob[$i] = ord($str[$i]);
 			}
 		}else{
 			for($i = 0; $i < $len; ++$i){
-				$ob[$i] = $str{$i};
+				$ob[$i] = $str[$i];
 			}
 		}
 
@@ -88,11 +88,11 @@ class SplFixedByteArray extends SplFixedArray{
 
 		if($convert){
 			for($i = 0; $i < $size; ++$i){
-				$ob[$i] = ord($str{$i + $start});
+				$ob[$i] = ord($str[$i + $start]);
 			}
 		}else{
 			for($i = 0; $i < $size; ++$i){
-				$ob[$i] = $str{$i + $start};
+				$ob[$i] = $str[$i + $start];
 			}
 		}
 
