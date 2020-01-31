@@ -10,6 +10,6 @@
         "phpstan/phpstan": "^0.12.8"
     },
     "autoload": {
-        "classmap": ["./"]
+        "classmap": ["./src"]
     }
 }
