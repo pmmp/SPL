@@ -3,7 +3,9 @@
     "description": "Standard library files required by PocketMine-MP and related projects",
     "type": "library",
     "license": "LGPL-3.0",
-    "require": {},
+    "require": {
+        "php": ">=7.2"
+    },
     "autoload": {
         "classmap": ["./"]
     }
