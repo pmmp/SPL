@@ -15,6 +15,9 @@
  * GNU General Public License for more details.
 */
 
+/**
+ * @phpstan-extends \SplFixedArray<int|string>
+ */
 class SplFixedByteArray extends SplFixedArray{
 
 	/** @var bool */
@@ -41,12 +44,17 @@ class SplFixedByteArray extends SplFixedArray{
 		if($normalize and $this->convert){
 			$d = "";
 			for($i = $start; $i < $end; ++$i){
-				$d .= chr($this[$i]);
+				/** @var int $v */
+				$v = $this[$i];
+
+				$d .= chr($v);
 			}
 		}else{
 			$d = [];
 			for($i = $start; $i < $end; ++$i){
-				$d[] = $this[$i];
+				/** @var string $v */
+				$v = $this[$i];
+				$d[] = $v;
 			}
 		}
 		return $d;
@@ -106,11 +114,15 @@ class SplFixedByteArray extends SplFixedArray{
 		$result = "";
 		if($this->convert){
 			for($i = 0; $i < $this->getSize(); ++$i){
-				$result .= chr($this[$i]);
+				/** @var int $v */
+				$v = $this[$i];
+				$result .= chr($v);
 			}
 		}else{
 			for($i = 0; $i < $this->getSize(); ++$i){
-				$result .= $this[$i];
+				/** @var string $v */
+				$v = $this[$i];
+				$result .= $v;
 			}
 		}
 		return $result;
